@@ -27,6 +27,14 @@ const ecommerce=createSlice({
                 })
             })   
 
+            state.inputVal= state.inputVal.filter((inputvalue,inputvalueindex)=>{
+
+                return inputvalueindex ==  state.ecoProduct.findIndex((inputvalue2)=>{
+
+                    return inputvalue.id == inputvalue2.id
+                })
+            })
+
             state.total= state.inputVal.reduce((x,y)=>{
                 return x+ y.price
             },0)
